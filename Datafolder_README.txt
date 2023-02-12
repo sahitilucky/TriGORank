@@ -1,0 +1,29 @@
+--> 'Pair-wise interaction format'(Folder) --  orignial pairwise interaction data folder
+--> 'Trigenic data'(Folder) -- original trigenic fitness data folder
+--> Results(Folder) -- results of Random forest method with Baseline interaction features and GO features on five fold stratified splits, contains results of Baseline, TriGORank-R, TriGORank-T, TriGORank-RT
+                        - Baseline results in "RF/baseline/average_precision_train160.txt"
+                        - TriGORank-R results in "RF/baseline+intersct_ws/average_precision_train160.txt"
+                        - TriGORank-T results in "RF/baseline+go_terms_TS_10/average_precision_train160.txt"
+                        - TriGORank-RT results in "RF/baseline+intersct_ws+go_terms_TS_10/average_precision_train160.txt"
+--> stratified_folds_splits(Folder) - five fold stratified train test splits of triplets in triple_fitness.tsv, should use the same splits for different methods to compare different methods fairly.
+--> triple_fitness_large.tsv -- larger dataset, contains 6 interaction/fitness features for triplet of genes ["G1", "G2", "G3", "G12", "G23", "G13"].
+--> triple_fitness.tsv -- smaller but more reliable dataset, contains 6 interaction/fitness features for triplet of genes ["G1", "G2", "G3", "G12", "G23", "G13"].
+--> double_fitness_large.tsv -- larger dataset, contains 3 interaction/fitness features for a pair of genes ["G1", "G2", "G12"].
+--> double_fitness.tsv -- smaller but more reliable dataset, contains 3 interaction/fitness features for a pair of genes ["G1", "G2", G12"].
+--> Trigenic_data_with_features(Folder) -- larger and smaller datasets containing all features for the triplets, the features include interaction data features, GO intersection, GO triplet subgraph features and GO Semantic similarity features
+                                    -- Trigenic_smalldata.txt - smaller dataset, contains target value, triplet gene ids, 282 features,
+                                                                - 0th column is target value, 1st column triplet gene ids,
+                                                                - 2 to 8 - interaction/fitness features,
+                                                                - 8 - 24 - GO intersection features,
+                                                                - 24 - 180 - GO triplet subgraph features,
+                                                                - 180 - 288 -  Semantic similarity features ["Wang", "Jiang", "Lin", "Resnik", "Rel", "GOGO"],
+                                    -- Trigenic_largedata.txt - larger dataset, contains target value, triplet gene ids, 182 features,
+                                                                - 0th column is target value, 1st column triplet gene ids,
+                                                                - 2 to 8 - interaction/fitness features,
+                                                                - 8 - 24 - GO intersection features,
+                                                                - 24 - 184 - GO triplet subgraph features,
+--> unseen_trigenic -- unseen triplets (triplets for which trigenic fitness scores is unavailable)
+                        - contains triplet gene ids, 6 interaction/fitness features
+--> bio_embedding_extrinsic -- Biomedical word embeddings learned from Pubmed and MeSH corpus - https://github.com/ncbi-nlp/BioWordVec
+--> digenic_data_sample.txt -- sample data from data in 'Pair-wise interaction format' folder.
+--> goslim_yeast.obo -- Yeast Gene Ontology file
